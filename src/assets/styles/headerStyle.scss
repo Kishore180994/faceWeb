@@ -1,0 +1,284 @@
+@import url("https://fonts.googleapis.com/css?family=Varela+Round");
+$color-1: #38f8ff;
+$color-2: #263794;
+$color-3: #08aeea;
+$color-4: #2af598;
+$size-px: 300px;
+$size: 300;
+$size-lg: $size * 1.5;
+$transform: $size-px / 2;
+body {
+    font-family: "Varela Round", sans-serif;
+    background-color: $color-2;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    transform: translateX(-1rem);
+}
+
+.vueParticle {
+    position: absolute;
+    z-index: 1;
+    height: 100vh;
+    width: 100vw;
+}
+
+.bind {
+    position: absolute;
+    z-index: 2;
+    text-align: center;
+    margin: 10% 20%;
+    .content {
+        @media (max-width: 600px) {
+            text-align: left;
+            max-width: 54rem;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+    .hero {
+        h1,
+        p {
+            color: white;
+            text-shadow: 0 0.5rem 1rem rgba(50, 0, 100, 0.1);
+            margin: 1.5rem -20%;
+        }
+        h1 {
+            margin: 0;
+            font-size: 3rem;
+        }
+        p {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+    }
+    .Button {
+        padding: 1.5rem 3rem;
+        margin: 0.2rem;
+        border: 0;
+        color: $color-3;
+        font-size: 1.2rem;
+        font-weight: bold;
+        background: white;
+        border-radius: 3px;
+        transition: all 0.2s;
+        cursor: pointer;
+        box-shadow: 0 1.75rem 2rem -0.4rem rgba(50, 0, 100, 0.15);
+        &:hover {
+            color: $color-4;
+            box-shadow: 0 1.75rem 3rem 0rem rgba(50, 0, 100, 0.1);
+            transform: scale(1.05);
+        }
+        &:active {
+            box-shadow: 0 1.75rem 2.5rem -0.2rem rgba(50, 0, 100, 0.125);
+            transform: scale(1.025);
+        }
+    }
+}
+
+.header {
+    position: relative;
+    height: 100vh;
+    display: block;
+    z-index: 0;
+    &.background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: linear-gradient($color-1, $color-2);
+        transform-origin: -170px 0px;
+        transform: skewY(-20deg);
+        overflow-x: hidden;
+        overflow-y: hidden;
+        @media (max-width: 600px) {
+            overflow-x: hidden;
+            overflow-y: scroll;
+            transform-origin: 0px 0px;
+        }
+    }
+}
+
+.visuals {
+    display: flex;
+    float: left;
+    padding: 5%;
+    margin-left: 3%;
+    margin-top: 7%;
+    position: relative;
+    z-index: 0;
+    .face-filter {
+        object-fit: contain;
+        width: 15%;
+        height: 15%;
+        filter: invert(100%);
+        animation: zoominoutsinglefeatured 1s infinite;
+    }
+}
+
+.scene {
+    perspective: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: translateY(-25rem);
+    z-index: 0;
+    max-width: 700px;
+    max-height: 700px;
+    float: right;
+    position: relative;
+    &:hover {
+        .side {
+            opacity: 1;
+        }
+    }
+}
+
+.cube {
+    transform-style: preserve-3d;
+    position: relative;
+    width: $size-px;
+    height: $size-px;
+    animation: rotate 10s ease-in-out infinite;
+    transform-origin: center center;
+}
+
+.side {
+    position: absolute;
+    width: $size-px;
+    height: $size-px;
+    background-color: #333;
+    opacity: 0.95;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.back {
+    transform: translateZ(-#{$transform}) rotateX(180deg);
+    background-image: url("../../assets/faceid/back1.png");
+}
+
+.left {
+    transform: translateX(-#{$transform}) rotateY(90deg);
+    background-image: url("../../assets/faceid/left.png");
+}
+
+.right {
+    transform: translateX($transform) rotateY(90deg);
+    background-image: url("../../assets/faceid/right.png");
+}
+
+.top {
+    transform: translateY(-#{$transform}) rotateX(90deg);
+    background-image: url("../../assets/faceid/top.png");
+}
+
+.bottom {
+    transform: translateY($transform) rotateX(270deg);
+    background-image: url("../../assets/faceid/bottom.png");
+}
+
+.front {
+    transform: translateZ($transform);
+    background-image: url("../../assets/faceid/front.png");
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotateX(0);
+    }
+    12.5% {
+        transform: rotateY(90deg);
+    }
+    25% {
+        transform: rotateY(270deg);
+    }
+    37.5% {
+        transform: rotateY(270deg);
+    }
+    50% {
+        transform: rotateY(360deg);
+    }
+    62.5% {
+        transform: rotateX(90deg);
+    }
+    75% {
+        transform: rotateX(180deg);
+    }
+    87.5% {
+        transform: rotateX(270deg);
+    }
+    100% {
+        transform: rotateX(360deg);
+    }
+}
+
+@keyframes zoominoutsinglefeatured {
+    0% {
+        transform: scale(1, 1);
+    }
+    75% {
+        transform: scale(1.05, 1.05);
+    }
+    100% {
+        transform: scale(1, 1);
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        position: relative;
+    }
+    .visuals {
+        img {
+            width: 50%;
+            height: 50%;
+        }
+    }
+    .bind {
+        margin: 60% 20%;
+        .content {
+            margin: 0;
+            transform: translateX(-2rem);
+        }
+        .Button {
+            transform: translateX(-2rem);
+        }
+    }
+    .scene {
+        visibility: hidden;
+        position: absolute;
+        transform: translateY(10rem);
+    }
+}
+
+
+/* Media queries for other screen widths */
+
+@media screen and (max-width: 450px) {
+    .col {
+        grid-row-end: unset;
+        grid-column-end: unset;
+        height: 250px;
+    }
+    .grid-area {
+        display: flex;
+        flex-direction: column;
+    }
+    .grid-3 {
+        order: -1;
+        height: 500px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .grid-2 {
+        display: none;
+    }
+}

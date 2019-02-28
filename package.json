@@ -1,0 +1,83 @@
+{
+    "name": "face-web",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "serve": "vue-cli-service serve",
+        "build": "vue-cli-service build",
+        "lint": "vue-cli-service lint",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "^1.2.15",
+        "@fortawesome/free-solid-svg-icons": "^5.7.2",
+        "@fortawesome/vue-fontawesome": "^0.1.5",
+        "axios": "^0.18.0",
+        "bcrypt": "^3.0.4",
+        "bluebird": "^3.5.3",
+        "body-parser": "^1.18.3",
+        "connect-mongo": "^2.0.3",
+        "cookie-parser": "^1.4.4",
+        "cookie-session": "^2.0.0-beta.3",
+        "cors": "^2.8.5",
+        "dotenv": "^6.2.0",
+        "ejs": "^2.6.1",
+        "express": "^4.16.4",
+        "express-session": "^1.15.6",
+        "express-vue": "^5.8.2",
+        "fs": "0.0.1-security",
+        "jade": "^1.11.0",
+        "jsonwebtoken": "^8.5.0",
+        "jwt-decode": "^2.2.0",
+        "mongoose": "^5.4.14",
+        "morgan": "^1.9.1",
+        "serve-favicon": "^2.5.0",
+        "uuid": "^3.3.2",
+        "vee-validate": "^2.1.7",
+        "vue": "^2.6.7",
+        "vue-axios": "^2.1.4",
+        "vue-router": "^3.0.2"
+    },
+    "devDependencies": {
+        "@vue/cli-plugin-babel": "^3.4.0",
+        "@vue/cli-plugin-eslint": "^3.4.0",
+        "@vue/cli-service": "^3.4.0",
+        "babel-eslint": "^10.0.1",
+        "css-loader": "^2.1.0",
+        "eslint": "^5.8.0",
+        "eslint-plugin-vue": "^5.0.0",
+        "node-sass": "^4.11.0",
+        "nodemon": "^1.18.10",
+        "sass-loader": "^7.1.0",
+        "style-loader": "^0.23.1",
+        "vue-particles": "^1.0.9",
+        "vue-template-compiler": "^2.6.7",
+        "webpack": "^4.29.4"
+    },
+    "eslintConfig": {
+        "root": true,
+        "env": {
+            "node": true
+        },
+        "extends": [
+            "plugin:vue/essential"
+        ],
+        "rules": {
+            "no-console": "off"
+        },
+        "parserOptions": {
+            "parser": "babel-eslint"
+        }
+    },
+    "postcss": {
+        "plugins": {
+            "autoprefixer": {}
+        }
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "not ie <= 8"
+    ]
+}
